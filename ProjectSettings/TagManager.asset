@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Climbing
+  - Player
+  - Background
   - 
   - 
   - 
@@ -41,3 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4232630767
+    locked: 0
+  - name: Water
+    uniqueID: 3353472073
+    locked: 0
+  - name: Platforms
+    uniqueID: 1454599363
+    locked: 0
+  - name: Climbing
+    uniqueID: 1978468907
+    locked: 0
+  - name: Player
+    uniqueID: 515597853
+    locked: 0
+  m_RenderingLayers:
+  - Default
