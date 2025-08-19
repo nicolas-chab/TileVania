@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     {
         myRigidbody.linearVelocity = new Vector2(moveSpeed, 0f);
     }
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         moveSpeed = -moveSpeed; // Reverse direction when hitting a wall
         flipenemySprite();

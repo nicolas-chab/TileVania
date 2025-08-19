@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runspeed;
     [SerializeField] float jumpspeed = 5f;
     [SerializeField] float climbspeed = 5f;
-    [SerializeField] Vector2 deathKick=new Vector2(10f, 10f);
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform Gun;
     Rigidbody2D myrigidbody;
     Vector2 moveInput;
     Animator myAnimator;
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         ClimbLadder();
         Die();
+
     }
     void OnMove(InputValue value)
     {
@@ -88,6 +91,17 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myrigidbody.linearVelocity = deathKick;
+            FindAnyObjectByType<GameSession>().ProcessPlayerDeath(); // Notify GameSession of player death
         }
-    }   
+    }
+    void OnAttack(InputValue value)
+{
+    if (!isAlive) { return; }
+    if (value.isPressed)
+    {
+        GameObject bullet = Instantiate(bulletPrefab, Gun.position, transform.rotation);
+        // Flip bullet sprite to match player direction
+        bullet.transform.localScale = new Vector3(transform.localScale.x, 1f, 1f);
+    }
+}
 }
