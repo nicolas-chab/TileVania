@@ -1,2 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.mat linguist-generated=true
+*.meta linguist-generated=true
+*.shader linguist-generated=true
+*.cginc linguist-generated=true
+*.anim linguist-generated=true
+*.asset linguist-generated=true
+*.prefab linguist-generated=true
